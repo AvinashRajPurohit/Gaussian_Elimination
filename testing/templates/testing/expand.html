@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+          crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<style>
+        		body{
+		  background: rgb(54,217,182);
+		  background: linear-gradient(90deg, rgba(54,217,182,1) 0%, rgba(32,152,126,1) 43%, rgba(0,212,255,1) 100%);
+		}
+
+		h1, h2, h3, h4, h5, p, span, strike{
+		  font-family: 'Montserrat', sans-serif;
+
+		}
+    #task-container{
+		  max-width:600px;
+		  margin:0 auto;
+		  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+		  background-color: #fff;
+
+		  margin-top:100px;
+		  margin-bottom:100px;
+
+		  justify-content: space-around;
+		  align-items: flex-start;
+
+		}
+        		#form-wrapper{
+		  position: -webkit-sticky;
+		  position: sticky;
+		  top: 0rem;
+		  border-bottom: 1px solid  #e9e9e9;
+		  background-color: #fff;
+		  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+ 		  padding:40px;
+		}
+
+		#submit{
+		  background-color: #36d9b6;
+		  border-radius: 0;
+		  border:0;
+		  color: #fff;
+		}
+
+		.flex-wrapper{
+			display: flex;
+		}
+
+		.task-wrapper{
+		  	margin:5px;
+		  	padding: 5px;
+		  	padding:20px;
+		  	cursor: pointer;
+		  	border-bottom: 1px solid  #e9e9e9;
+		  	color: #686868;
+			}
+        </style>
+</head>
+<body>
+
+<div class="container">
+
+		<div id="task-container">
+            <h3 class="ml-4">Gaussian Elimination</h3>
+			<div id="form-wrapper">
+				<h6>Note -: Type Matrix number without giving space</h6>
+				<form class="mt-4" action="{% url 'expand' %}" method="POST">
+                            {% csrf_token %}
+					<div class="flex-wrapper">
+						<div style="flex: 6">
+							<input id="title" class="form-control" type="number" name="expression" placeholder="Add expression">
+							<input  class="form-control" type="number" name="expression1" placeholder="Add expression">
+						</div>
+
+							<input id="submit" name="btn1" class="btn" type="submit" value="See Matrix Here">
+
+					</div>
+					<div class="mt-4">
+
+					</div>
+				</form>
+			</div>
+
+			<div id="list-wrapper">
+				<h6 class="mt-2 ml-1">Solve Gaussian Elimination Step by Step-</h6>
+					<button name="step1" class="ml-1 btn  btn-success">Step-1</button>
+				<h6 class="mt-2 ml-1">Step1-: Where we convert our input in Matrix</h6>
+
+				<h4 class="ml-2">Your Matrix:</h4>
+				<h5 class="mt-2 ml-4">{{matrix}}</h5>
+
+
+				<hr>
+				<button name="step2" class="ml-1 btn btn-primary ">Step-2</button>
+				<h6 class="mt-2 ml-1">Step-2-: Reduce matrix to row echelon form</h6>
+				<h5 class="ml-4">Matrix({{first}})</h5>
+				<hr>
+
+                    <button name="final" class="btn btn-info ml-1 ">Final result</button>
+
+				<h6 class="mt-2 ml-1">Final-: The solution to the system of equations are-:</h6>
+					<h5 class="ml-4">x = {{ans1}}</h5>
+					<h5 class="ml-4">x = {{ans2}}</h5>
+
+			</div>
+		</div>
+
+	</div>
+
+
+
+</body>
+</html>
