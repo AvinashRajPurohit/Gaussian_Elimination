@@ -41,7 +41,7 @@ distro-info===0.23ubuntu1
 Django==3.0.8
 django-crispy-forms==1.9.1
 django-filter==2.3.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 docker==4.2.2
 docker-compose==1.26.2
 dockerpty==0.4.1
